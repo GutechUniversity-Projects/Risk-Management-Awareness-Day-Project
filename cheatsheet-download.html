@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloading Cheat Sheet...</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #050b14;
+      color: #e8f4f8;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    a { color: #00d4ff; }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Preparing your cheat sheet download...</p>
+    <p>If download does not start, <a id="fallbackLink" href="#">tap here</a>.</p>
+  </div>
+  <script>
+    // 1. Set the name of your real image file here
+    const IMAGE_FILE_PATH = 'frameworks-cheat-sheet.png'; 
+  
+    function triggerCheatsheetDownload() {
+      const a = document.createElement('a');
+      a.href = IMAGE_FILE_PATH;
+      a.download = 'frameworks-cheat-sheet.png'; // This forces the download
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  
+    // Run automatically when the page loads
+    window.onload = function() {
+      const fallback = document.getElementById('fallbackLink');
+      fallback.addEventListener('click', function (e) {
+        e.preventDefault();
+        triggerCheatsheetDownload();
+      });
+      
+      // Small delay to ensure the browser allows the download pop-up
+      setTimeout(triggerCheatsheetDownload, 500);
+    };
+  </script>
+</body>
+</html>
