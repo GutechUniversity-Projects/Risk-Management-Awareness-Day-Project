@@ -106,7 +106,7 @@ ${xrefPos}
     function triggerCheatsheetDownload() {
       const blob = buildCheatsheetPdfBlob();
       const url = URL.createObjectURL(blob);
-      const filename = 'frameworks-cheat-sheet.pdf';
+      const filename = 'frameworks-cheat-sheet.png';
       const a = document.createElement('a');
       a.href = url;
       a.download = filename;
