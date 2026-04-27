@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberShield — Policies, Guidelines & Standards</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oxanium:wght@300;400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ======= ROOT & RESET ======= */
+:root {
+  --bg: #050b14;
+  --surface: #0a1628;
+  --surface2: #0f2040;
+  --border: #1a3a5c;
+  --accent: #00d4ff;
+  --accent2: #00ff88;
+  --accent3: #ff6b35;
+  --accent4: #bd00ff;
+  --text: #e8f4f8;
+  --text-dim: #6a8fa8;
+  --text-mid: #a0c0d8;
+  --card-bg: rgba(10,22,40,0.92);
+  --glow: 0 0 24px rgba(0,212,255,0.18);
+  --font-display: 'Oxanium', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ======= GRID BG ======= */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+.cyber-wallpaper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.48;
+}
+
+/* ======= NAV ======= */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(5,11,20,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 2px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo span { color: var(--accent2); }
+.nav-links {
+  display: flex; gap: 4px; list-style: none;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+.nav-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0,212,255,0.06);
+}
+
+/* ======= HERO ======= */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 2rem 4rem;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent2);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.8s ease both;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.9s ease 0.1s both;
+}
+.hero-title .line1 { display: block; color: var(--text); }
+.hero-title .line2 { display: block; color: var(--accent); }
+.hero-title .line3 { display: block; font-size: 0.55em; color: var(--text-dim); font-weight: 300; letter-spacing: 6px; margin-top: 0.3em; }
+.hero-sub {
+  max-width: 600px;
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+.hero-badges {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+.badge {
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}
+.badge.g { border-color: rgba(0,255,136,0.25); color: var(--accent2); background: rgba(0,255,136,0.08); }
+.badge.s { border-color: rgba(189,0,255,0.25); color: var(--accent4); background: rgba(189,0,255,0.08); }
+.hero-cta {
+  margin-top: 2.5rem;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 14px 36px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,212,255,0.3); }
+.scroll-hint {
+  position: absolute; bottom: 2rem;
+  font-family: var(--font-mono); font-size: 0.7rem;
+  color: var(--text-dim); letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+
+/* ======= SECTIONS ======= */
+section {
+  padding: 80px 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text);
+}
+.section-desc {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  margin-top: 0.75rem;
+  max-width: 520px;
+  margin-left: auto; margin-right: auto;
+  line-height: 1.6;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0;
+}
+
+/* ======= CARDS ======= */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+/* ======= FLASHCARDS ======= */
+#flashcards .fc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.flashcard {
+  perspective: 1000px;
+  height: 200px;
+  cursor: pointer;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  transform-style: preserve-3d;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.fc-front, .fc-back {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+.fc-front {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.fc-back {
+  background: var(--surface2);
+  border: 1px solid var(--accent);
+  transform: rotateY(180deg);
+}
+.fc-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.fc-term {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.fc-flip-hint {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+.fc-type-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+.fc-desc {
+  color: var(--text-mid);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.fc-example {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* ======= MCQ ======= */
+#mcq .mcq-container {
+  max-width: 680px; margin: 0 auto;
+}
+.mcq-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  min-height: 300px;
+}
+.mcq-progress {
+  display: flex; gap: 6px; margin-bottom: 1.5rem;
+}
+.mcq-dot {
+  flex: 1; height: 3px; border-radius: 3px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.mcq-dot.done { background: var(--accent2); }
+.mcq-dot.active { background: var(--accent); }
+.mcq-q-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+.mcq-question {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.mcq-options { display: flex; flex-direction: column; gap: 0.75rem; }
+.mcq-opt {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-body);
+}
+.mcq-opt:hover:not(.disabled) { border-color: var(--accent); color: var(--text); background: rgba(0,212,255,0.05); }
+.mcq-opt.correct { border-color: var(--accent2); background: rgba(0,255,136,0.08); color: var(--accent2); }
+.mcq-opt.wrong { border-color: var(--accent3); background: rgba(255,107,53,0.08); color: var(--accent3); }
+.mcq-opt.disabled { cursor: default; }
+.opt-letter {
+  width: 28px; height: 28px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+.mcq-feedback {
+  margin-top: 1rem;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  display: none;
+}
+.mcq-feedback.show { display: block; }
+.mcq-feedback.correct { background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2); color: var(--accent2); }
+.mcq-feedback.wrong { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.2); color: #ff9d7a; }
+.mcq-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 1.5rem;
+}
+.btn-sec {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-sec:hover { border-color: var(--accent); color: var(--accent); }
+.btn-accent {
+  background: var(--accent);
+  border: none;
+  color: #000;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-accent:hover { background: #fff; }
+.mcq-score-display {
+  text-align: center; padding: 2rem;
+  display: none;
+}
+.mcq-score-display.show { display: block; }
+.score-big {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.score-label { color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem; }
+
+/* ======= DRAG & DROP ======= */
+#dragdrop .dd-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media(max-width:640px){ #dragdrop .dd-layout { grid-template-columns: 1fr; } }
+.dd-items-col h3, .dd-cats-col h3 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.dd-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  cursor: grab;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  transition: all 0.2s;
+  user-select: none;
+}
+.dd-item:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); }
+.dd-item.dragging { opacity: 0.4; border-style: dashed; }
+.dd-item.dropped { opacity: 0.5; cursor: default; }
+.dd-category {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 90px;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+.dd-category.drag-over {
+  border-color: var(--accent);
+  background: rgba(0,212,255,0.06);
+}
+.cat-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.cat-drop-zone { min-height: 42px; }
+.dropped-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(0,212,255,0.1);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-family: var(--font-display);
+  color: var(--accent);
+  margin: 3px;
+}
+.dropped-chip.correct { background: rgba(0,255,136,0.1); border-color: var(--accent2); color: var(--accent2); }
+.dropped-chip.wrong { background: rgba(255,107,53,0.1); border-color: var(--accent3); color: var(--accent3); }
+.dd-reveal-btn {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+}
+.dd-explanation {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: none;
+}
+.dd-explanation.show { display: block; }
+.dd-exp-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.dd-exp-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.dd-exp-icon { font-size: 1.4rem; flex-shrink: 0; }
+.dd-exp-name { font-family: var(--font-display); font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+.dd-exp-type { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 1px; }
+.dd-exp-text { color: var(--text-dim); font-size: 0.82rem; line-height: 1.6; margin-top: 4px; }
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  transition: all 0.2s;
+}
+.reset-btn:hover { border-color: var(--accent3); color: var(--accent3); }
+
+/* ======= SECURITY QUIZ ======= */
+#secquiz .sq-container { max-width: 600px; margin: 0 auto; }
+.sq-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.sq-q-indicator {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 0.72rem;
+  color: var(--text-dim); margin-bottom: 1.5rem;
+}
+.sq-question {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--text); margin-bottom: 1.25rem; line-height: 1.5;
+}
+.sq-options { display: flex; gap: 10px; }
+.sq-opt {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem; font-weight: 600;
+  color: var(--text-mid);
+  transition: all 0.2s;
+}
+.sq-opt:hover { border-color: var(--accent); color: var(--accent); }
+.sq-opt.selected-yes { border-color: var(--accent2); background: rgba(0,255,136,0.1); color: var(--accent2); }
+.sq-opt.selected-no { border-color: var(--accent3); background: rgba(255,107,53,0.1); color: var(--accent3); }
+.sq-result {
+  display: none; text-align: center; padding: 2rem;
+}
+.sq-result.show { display: block; }
+.sq-score-ring {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800;
+}
+.sq-score-ring.low { background: rgba(255,107,53,0.15); border: 3px solid var(--accent3); }
+.sq-score-ring.med { background: rgba(0,212,255,0.1); border: 3px solid var(--accent); }
+.sq-score-ring.high { background: rgba(0,255,136,0.1); border: 3px solid var(--accent2); }
+.sq-score-num { font-size: 2rem; }
+.sq-score-lbl { font-size: 0.75rem; letter-spacing: 2px; }
+.sq-level {
+  font-family: var(--font-display);
+  font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;
+}
+.sq-suggestion {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  font-size: 0.85rem; color: var(--text-mid);
+  text-align: left; line-height: 1.6;
+}
+.sq-suggestion strong { color: var(--accent); font-family: var(--font-display); }
+
+/* ======= SCENARIO GAME ======= */
+#game .game-container { max-width: 780px; margin: 0 auto; }
+.game-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.game-header {
+  background: var(--surface2);
+  padding: 1.25rem 1.75rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.game-scenario-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem; color: var(--text-dim); letter-spacing: 2px;
+}
+.game-score-badge {
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem; color: var(--accent);
+}
+.game-body { padding: 1.75rem; }
+.game-company {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.25rem;
+}
+.company-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+.company-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 700; color: var(--text);
+}
+.company-type { font-size: 0.78rem; color: var(--text-dim); }
+.game-scenario-text {
+  font-size: 0.92rem; color: var(--text-mid);
+  line-height: 1.7; margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0,0,0,0.2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+.game-question {
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 600;
+  color: var(--text); margin-bottom: 1rem;
+}
+.game-choices { display: flex; flex-direction: column; gap: 8px; }
+.game-choice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.88rem; color: var(--text-mid);
+  transition: all 0.2s;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.game-choice:hover:not(.disabled) { border-color: var(--accent); color: var(--text); }
+.game-choice.correct { border-color: var(--accent2); background: rgba(0,255,136,0.08); color: var(--accent2); }
+.game-choice.wrong { border-color: var(--accent3); background: rgba(255,107,53,0.08); color: var(--accent3); }
+.choice-key {
+  width: 24px; height: 24px; flex-shrink: 0;
+  border: 1px solid currentColor; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-family: var(--font-mono);
+}
+.game-result-panel {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem; line-height: 1.6;
+  display: none;
+}
+.game-result-panel.show { display: block; }
+.game-result-panel.correct { background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2); color: #a0f0c8; }
+.game-result-panel.wrong { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.2); color: #ffc0a0; }
+.game-footer {
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.game-end {
+  text-align: center; padding: 3rem 2rem; display: none;
+}
+.game-end.show { display: block; }
+.game-end-score {
+  font-family: var(--font-display);
+  font-size: 3.5rem; font-weight: 800; color: var(--accent);
+}
+
+/* ======= QR / TAKEAWAY ======= */
+#takeaway .ta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.ta-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+.ta-card:hover { border-color: var(--accent); box-shadow: var(--glow); }
+.ta-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.ta-title {
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 700; color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.ta-desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.5; margin-bottom: 1.25rem; }
+.qr-placeholder {
+  width: 120px; height: 120px;
+  margin: 0 auto 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: white;
+  overflow: hidden;
+}
+.qr-placeholder svg { width: 100%; height: 100%; }
+.qr-placeholder img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.download-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.download-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+.cheatsheet-modal {
+  display: none; position: fixed; inset: 0;
+  background: rgba(5,11,20,0.95);
+  z-index: 200;
+  overflow-y: auto;
+  padding: 2rem;
+}
+.cheatsheet-modal.open { display: flex; align-items: flex-start; justify-content: center; }
+.cheatsheet-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  max-width: 780px; width: 100%;
+  padding: 2.5rem;
+  position: relative;
+  margin: auto;
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text-dim); width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer;
+  font-size: 1rem; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.modal-close:hover { border-color: var(--accent3); color: var(--accent3); }
+.cheat-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.cheat-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.cheat-section h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem; font-weight: 700;
+  color: var(--accent); margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.cheat-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 8px 16px;
+  font-size: 0.82rem; margin-bottom: 6px;
+}
+.cheat-key {
+  font-family: var(--font-mono);
+  color: var(--accent2);
+}
+.cheat-val { color: var(--text-mid); }
+
+/* ======= FOOTER ======= */
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}
+footer span { color: var(--accent); }
+
+/* ======= ANIMATIONS ======= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 0 rgba(0,212,255,0); }
+  50% { box-shadow: 0 0 30px rgba(0,212,255,0.2); }
+}
+
+/* ======= RESPONSIVE ======= */
+@media(max-width:768px){
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  section { padding: 60px 1.25rem; }
+  .sq-options { flex-direction: column; }
+}
+
+/* Tooltip */
+[data-tip] { position: relative; }
+[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+<canvas id="cyberWallpaper" class="cyber-wallpaper" aria-hidden="true"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🔐 CYBER<span>SHIELD</div>
+  <ul class="nav-links">
+    <li><a href="#flashcards">Flashcards</a></li>
+    <li><a href="#mcq">MCQ Quiz</a></li>
+    <li><a href="#dragdrop">Drag & Drop</a></li>
+    <li><a href="#secquiz">Security Quiz</a></li>
+    <li><a href="#game">Scenario Game</a></li>
+    <li><a href="#takeaway">Takeaway</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:100%;padding-top:100px;">
+  <div class="hero-eyebrow">GUtech Cybersecurity Awareness Exhibition 2026</div>
+  <h1 class="hero-title">
+    <span class="line1">Policies, Guidelines</span>
+    <span class="line2">&amp; Standards</span>
+    <span class="line3">in Cybersecurity</span>
+  </h1>
+  <p class="hero-sub">
+    Learn the foundations of cybersecurity governance — from password policies to global frameworks like NIST, ISO, and CIS — through interactive challenges.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">📋 POLICY</span>
+    <span class="badge g">📖 GUIDELINE</span>
+    <span class="badge s">📐 STANDARD</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#flashcards" class="btn-primary">Start Exploring →</a>
+  </div>
+  <div class="scroll-hint">↓ SCROLL TO EXPLORE ↓</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 1. FLASHCARDS ===== -->
+<section id="flashcards">
+  <div class="section-header">
+    <div class="section-tag">01 / Flashcards</div>
+    <h2 class="section-title">Know Your Terms</h2>
+    <p class="section-desc">Tap any card to flip it and reveal the definition + example.</p>
+  </div>
+  <div class="fc-grid">
+    <!-- Card 1 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">📋</div>
+          <div class="fc-term">Security Policy</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);color:var(--accent)">POLICY</span>
+          <div class="fc-desc">A formal, mandatory document that defines rules and obligations enforced by authority (management or regulation).</div>
+          <div class="fc-example">📌 Ex: "All employees MUST use MFA to access company systems."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">📖</div>
+          <div class="fc-term">Security Guideline</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);color:var(--accent2)">GUIDELINE</span>
+          <div class="fc-desc">Recommended, flexible best practices that provide direction — not mandatory, but highly advised.</div>
+          <div class="fc-example">📌 Ex: "It is recommended to use a password manager."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">📐</div>
+          <div class="fc-term">Security Standard</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(189,0,255,0.1);border:1px solid rgba(189,0,255,0.3);color:var(--accent4)">STANDARD</span>
+          <div class="fc-desc">Specific, measurable technical or procedural requirements that support policies — often industry-defined.</div>
+          <div class="fc-example">📌 Ex: "Passwords must be min. 12 chars with upper, lower, number & symbol."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">🔐</div>
+          <div class="fc-term">Password Policy</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);color:var(--accent)">POLICY</span>
+          <div class="fc-desc">A mandatory organizational rule governing how passwords are created, used, and maintained to prevent unauthorized access.</div>
+          <div class="fc-example">📌 Ex: "Passwords must be changed every 90 days."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">⚠️</div>
+          <div class="fc-term">Risk Assessment</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);color:var(--accent2)">GUIDELINE</span>
+          <div class="fc-desc">A recommended process of identifying, analyzing, and evaluating cybersecurity risks to inform decision-making.</div>
+          <div class="fc-example">📌 Ex: NIST's Risk Management Framework guidance.</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">🚨</div>
+          <div class="fc-term">Incident Response</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(189,0,255,0.1);border:1px solid rgba(189,0,255,0.3);color:var(--accent4)">STANDARD</span>
+          <div class="fc-desc">A defined, measurable procedure for detecting, containing, and recovering from cybersecurity incidents.</div>
+          <div class="fc-example">📌 Ex: ISO/IEC 27035 Incident Management Standard.</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">✅</div>
+          <div class="fc-term">Acceptable Use Policy</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);color:var(--accent)">POLICY</span>
+          <div class="fc-desc">A mandatory policy defining how employees may use company devices, internet access, email, and digital systems.</div>
+          <div class="fc-example">📌 Ex: "Installing unauthorized software on company laptops is prohibited."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">🧠</div>
+          <div class="fc-term">Security Awareness Training</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);color:var(--accent2)">GUIDELINE</span>
+          <div class="fc-desc">A recommended practice to regularly train users on phishing, social engineering, and safe behavior online.</div>
+          <div class="fc-example">📌 Ex: Quarterly phishing simulations with awareness refreshers.</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 9 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">💳</div>
+          <div class="fc-term">PCI DSS</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(189,0,255,0.1);border:1px solid rgba(189,0,255,0.3);color:var(--accent4)">STANDARD</span>
+          <div class="fc-desc">An industry security standard with specific controls for organizations that store, process, or transmit cardholder data.</div>
+          <div class="fc-example">📌 Ex: Cardholder databases must be encrypted and access strictly controlled.</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 10 -->
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-icon">🔑</div>
+          <div class="fc-term">Access Control Standard</div>
+          <div class="fc-flip-hint">[ TAP TO FLIP ]</div>
+        </div>
+        <div class="fc-back">
+          <span class="fc-type-badge" style="background:rgba(189,0,255,0.1);border:1px solid rgba(189,0,255,0.3);color:var(--accent4)">STANDARD</span>
+          <div class="fc-desc">A measurable set of technical requirements that enforce least privilege and role-based access to systems.</div>
+          <div class="fc-example">📌 Ex: "Privileged accounts must use MFA and be reviewed every 30 days."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 2. MCQ ===== -->
+<section id="mcq">
+  <div class="section-header">
+    <div class="section-tag">02 / MCQ Quiz</div>
+    <h2 class="section-title">Test Your Knowledge</h2>
+    <p class="section-desc">8 questions on policies, guidelines and standards. One right answer per question.</p>
+  </div>
+  <div class="mcq-container">
+    <div class="mcq-card" id="mcqCard">
+      <div class="mcq-progress" id="mcqProgress"></div>
+      <div id="mcqBody"></div>
+      <div class="mcq-nav">
+        <span id="mcqCounter" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim);letter-spacing:2px;"></span>
+        <button class="btn-accent" id="mcqNextBtn" onclick="mcqNext()" style="display:none">NEXT →</button>
+      </div>
+    </div>
+    <div class="mcq-score-display" id="mcqScore">
+      <div class="score-big" id="mcqScoreNum"></div>
+      <div class="score-label">CORRECT ANSWERS</div>
+      <p style="color:var(--text-dim);margin-top:1rem;font-size:0.85rem;" id="mcqScoreMsg"></p>
+      <button class="btn-accent" style="margin-top:1.5rem;" onclick="mcqReset()">TRY AGAIN</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 3. DRAG & DROP ===== -->
+<section id="dragdrop">
+  <div class="section-header">
+    <div class="section-tag">03 / Drag & Drop</div>
+    <h2 class="section-title">Classify the Concepts</h2>
+    <p class="section-desc">Drag each item to the correct category: Policy, Guideline, or Standard.</p>
+  </div>
+  <div class="dd-layout">
+    <div class="dd-items-col">
+      <h3>🧩 Items to Classify</h3>
+      <div id="ddItems">
+        <div class="dd-item" draggable="true" data-item="Password Policy" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">🔐 <span>Password Policy</span></div>
+        <div class="dd-item" draggable="true" data-item="Risk Assessment" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">⚠️ <span>Risk Assessment</span></div>
+        <div class="dd-item" draggable="true" data-item="Incident Response" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">🚨 <span>Incident Response</span></div>
+        <div class="dd-item" draggable="true" data-item="Acceptable Use Policy" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">📋 <span>Acceptable Use Policy</span></div>
+        <div class="dd-item" draggable="true" data-item="Encryption Guideline" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">🔒 <span>Encryption Guideline</span></div>
+        <div class="dd-item" draggable="true" data-item="PCI DSS" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">💳 <span>PCI DSS</span></div>
+        <div class="dd-item" draggable="true" data-item="Data Retention Policy" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">🗃️ <span>Data Retention Policy</span></div>
+        <div class="dd-item" draggable="true" data-item="Remote Work Guideline" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">🏠 <span>Remote Work Guideline</span></div>
+        <div class="dd-item" draggable="true" data-item="Access Control Standard" ondragstart="ddDragStart(event)" ondragend="ddDragEnd(event)">🔑 <span>Access Control Standard</span></div>
+      </div>
+      <button class="reset-btn" onclick="ddReset()">↺ Reset</button>
+    </div>
+    <div class="dd-cats-col">
+      <h3>🗂️ Categories</h3>
+      <div class="dd-category" ondragover="ddDragOver(event)" ondrop="ddDrop(event,this)" data-cat="Policy">
+        <div class="cat-label" style="color:var(--accent)">📋 Policy</div>
+        <div class="cat-drop-zone" id="zone-Policy"></div>
+      </div>
+      <div class="dd-category" ondragover="ddDragOver(event)" ondrop="ddDrop(event,this)" data-cat="Guideline">
+        <div class="cat-label" style="color:var(--accent2)">📖 Guideline</div>
+        <div class="cat-drop-zone" id="zone-Guideline"></div>
+      </div>
+      <div class="dd-category" ondragover="ddDragOver(event)" ondrop="ddDrop(event,this)" data-cat="Standard">
+        <div class="cat-label" style="color:var(--accent4)">📐 Standard</div>
+        <div class="cat-drop-zone" id="zone-Standard"></div>
+      </div>
+      <button class="btn-accent dd-reveal-btn" onclick="ddReveal()">Reveal Answers</button>
+    </div>
+  </div>
+  <div class="dd-explanation" id="ddExplanation">
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">🔐</div>
+      <div>
+        <div class="dd-exp-name">Password Policy</div>
+        <div class="dd-exp-type" style="color:var(--accent)">✅ POLICY — Mandatory enforcement</div>
+        <div class="dd-exp-text">A formal, enforceable mandate that sets rules employees must follow. Organizations enforce consequences for non-compliance.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">⚠️</div>
+      <div>
+        <div class="dd-exp-name">Risk Assessment</div>
+        <div class="dd-exp-type" style="color:var(--accent2)">✅ GUIDELINE — Recommended process</div>
+        <div class="dd-exp-text">A recommended practice that provides direction on evaluating risks. Organizations adapt the process to their context.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">🚨</div>
+      <div>
+        <div class="dd-exp-name">Incident Response</div>
+        <div class="dd-exp-type" style="color:var(--accent4)">✅ STANDARD — Specific, measurable steps</div>
+        <div class="dd-exp-text">Follows documented, measurable procedures (like ISO 27035) with defined phases: Identification → Containment → Eradication → Recovery.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">📋</div>
+      <div>
+        <div class="dd-exp-name">Acceptable Use Policy</div>
+        <div class="dd-exp-type" style="color:var(--accent)">✅ POLICY — Mandatory rule</div>
+        <div class="dd-exp-text">Defines what employees are and aren't allowed to do with company systems. Enforced with disciplinary action.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">🔒</div>
+      <div>
+        <div class="dd-exp-name">Encryption Guideline</div>
+        <div class="dd-exp-type" style="color:var(--accent2)">✅ GUIDELINE — Best practice recommendation</div>
+        <div class="dd-exp-text">Recommends encryption methods (like AES-256) but leaves teams flexibility to implement based on their environment.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">💳</div>
+      <div>
+        <div class="dd-exp-name">PCI DSS</div>
+        <div class="dd-exp-type" style="color:var(--accent4)">✅ STANDARD — Industry compliance benchmark</div>
+        <div class="dd-exp-text">Payment Card Industry Data Security Standard — a specific, measurable set of requirements for protecting cardholder data.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">🗃️</div>
+      <div>
+        <div class="dd-exp-name">Data Retention Policy</div>
+        <div class="dd-exp-type" style="color:var(--accent)">✅ POLICY — Mandatory rule</div>
+        <div class="dd-exp-text">Defines how long data must be stored and when it must be securely deleted based on legal and business requirements.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">🏠</div>
+      <div>
+        <div class="dd-exp-name">Remote Work Guideline</div>
+        <div class="dd-exp-type" style="color:var(--accent2)">✅ GUIDELINE — Recommended practice</div>
+        <div class="dd-exp-text">Advises safe remote behavior such as using VPNs, locking screens, and avoiding public Wi-Fi for sensitive work.</div>
+      </div>
+    </div>
+    <div class="dd-exp-item">
+      <div class="dd-exp-icon">🔑</div>
+      <div>
+        <div class="dd-exp-name">Access Control Standard</div>
+        <div class="dd-exp-type" style="color:var(--accent4)">✅ STANDARD — Specific, measurable requirements</div>
+        <div class="dd-exp-text">Defines concrete controls for least privilege, role-based access, MFA, and periodic access reviews.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 4. SECURITY QUIZ ===== -->
+<section id="secquiz">
+  <div class="section-header">
+    <div class="section-tag">04 / Security Check</div>
+    <h2 class="section-title">How Secure Are You?</h2>
+    <p class="section-desc">7 quick yes/no questions. Find out your security posture and what to do next.</p>
+  </div>
+  <div class="sq-container">
+    <div class="sq-card" id="sqCard">
+      <div class="sq-q-indicator">
+        <span id="sqQNum">QUESTION 1 / 7</span>
+        <span id="sqQScore" style="color:var(--accent)"></span>
+      </div>
+      <div id="sqBody"></div>
+    </div>
+    <div class="sq-result" id="sqResult">
+      <div class="sq-score-ring" id="sqRing">
+        <div class="sq-score-num" id="sqScoreNum"></div>
+        <div class="sq-score-lbl">/ 7</div>
+      </div>
+      <div class="sq-level" id="sqLevel"></div>
+      <p style="color:var(--text-dim);font-size:0.85rem;" id="sqLevelDesc"></p>
+      <div class="sq-suggestion" id="sqSuggestion"></div>
+      <button class="btn-accent" style="margin-top:1.5rem;" onclick="sqReset()">RETAKE QUIZ</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 5. SCENARIO GAME ===== -->
+<section id="game">
+  <div class="section-header">
+    <div class="section-tag">05 / Scenario Game</div>
+    <h2 class="section-title">Pick the Right Framework</h2>
+    <p class="section-desc">Real company cases. Which policy, guideline, or standard fits best?</p>
+  </div>
+  <div class="game-container">
+    <div class="game-card" id="gameCard">
+      <div class="game-header">
+        <span class="game-scenario-num" id="gameScenarioNum">SCENARIO 1 / 6</span>
+        <span class="game-score-badge" id="gameScoreBadge">SCORE: 0</span>
+      </div>
+      <div class="game-body" id="gameBody"></div>
+      <div class="game-footer">
+        <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim);" id="gameFooterMsg"></span>
+        <button class="btn-accent" id="gameNextBtn" onclick="gameNext()" style="display:none">NEXT →</button>
+      </div>
+    </div>
+    <div class="game-end" id="gameEnd">
+      <div class="game-end-score" id="gameEndScore"></div>
+      <div style="font-family:var(--font-display);font-size:1.2rem;color:var(--text);margin:0.5rem 0;" id="gameEndTitle"></div>
+      <p style="color:var(--text-dim);font-size:0.85rem;max-width:400px;margin:0 auto 1.5rem;" id="gameEndDesc"></p>
+      <button class="btn-accent" onclick="gameReset()">PLAY AGAIN</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 6. QR / TAKEAWAY ===== -->
+<section id="takeaway">
+  <div class="section-header">
+    <div class="section-tag">06 / Takeaway</div>
+    <h2 class="section-title">Scan &amp; Learn More</h2>
+    <p class="section-desc">Take something home! Download our cheat sheet or scan to explore further.</p>
+  </div>
+  <div class="ta-grid">
+    <div class="ta-card">
+      <div class="ta-icon">📄</div>
+      <div class="ta-title">Frameworks Cheat Sheet</div>
+      <div class="ta-desc">Scan this QR to download the cheat sheet file automatically, or preview it here.</div>
+      <div class="qr-placeholder">
+        <img id="cheatsheetQr" alt="QR code for Frameworks Cheat Sheet PDF" />
+      </div>
+      <button class="download-btn" onclick="openCheatsheet()">👁️ Preview Cheat Sheet</button>
+    </div>
+    <div class="ta-card">
+      <div class="ta-icon">🏛️</div>
+      <div class="ta-title">NIST Cybersecurity Framework</div>
+      <div class="ta-desc">Explore the official NIST CSF 2.0 guidance — a free, risk-based framework for cybersecurity programs.</div>
+      <a href="https://www.nist.gov/cyberframework" target="_blank" class="download-btn">🌐 Visit NIST.gov</a>
+    </div>
+    <div class="ta-card">
+      <div class="ta-icon">🛡️</div>
+      <div class="ta-title">CIS Controls v8</div>
+      <div class="ta-desc">Take a look at the CIS Controls v8 — 18 actionable controls for immediate improvement.</div>
+      <a href="https://www.cisecurity.org/controls/v8" target="_blank" class="download-btn">🌐 Visit CIS Security</a>
+    </div>
+    <div class="ta-card">
+      <div class="ta-icon">🌍</div>
+      <div class="ta-title">ISO 27001 Overview</div>
+      <div class="ta-desc">Explore the ISO/IEC 27001:2022 standard — the global benchmark for information security.</div>
+      <a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" class="download-btn">🌐 Visit ISO.org</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>🔐 <span>CyberShield</span> — Cybersecurity Awareness Exhibition 2026 &nbsp;|&nbsp; Policies · Guidelines · Standards</p>
+  <p style="margin-top:0.5rem;color:var(--text-dim);font-size:0.68rem;">GUtech | Risk Management & Cybersecurity Course Project</p>
+</footer>
+
+<!-- CHEAT SHEET MODAL -->
+<div class="cheatsheet-modal" id="cheatModal">
+  <div class="cheatsheet-inner">
+    <button class="modal-close" onclick="closeCheatsheet()">✕</button>
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--accent);margin-bottom:0.5rem;">📄 Cybersecurity Frameworks — Cheat Sheet</h2>
+    <p style="color:var(--text-dim);font-size:0.8rem;margin-bottom:1.5rem;font-family:var(--font-mono);">Quick reference guide · Policies, Guidelines & Standards</p>
+
+    <div class="cheat-section">
+      <h3>📋 The Three Pillars</h3>
+      <div class="cheat-row"><div class="cheat-key">Policy</div><div class="cheat-val">Mandatory rules enforced by authority. Non-compliance = consequences.</div></div>
+      <div class="cheat-row"><div class="cheat-key">Guideline</div><div class="cheat-val">Recommended best practices. Flexible, adaptable to context.</div></div>
+      <div class="cheat-row"><div class="cheat-key">Standard</div><div class="cheat-val">Specific, measurable technical requirements. Often industry-defined.</div></div>
+    </div>
+
+    <div class="cheat-section">
+      <h3>🌍 ISO 27001</h3>
+      <div class="cheat-row"><div class="cheat-key">What it is</div><div class="cheat-val">International ISMS certification standard</div></div>
+      <div class="cheat-row"><div class="cheat-key">Who it's for</div><div class="cheat-val">Large enterprises needing global recognition</div></div>
+      <div class="cheat-row"><div class="cheat-key">Key output</div><div class="cheat-val">Formal ISO 27001 certification</div></div>
+      <div class="cheat-row"><div class="cheat-key">Complexity</div><div class="cheat-val">⬛⬛⬛⬛⬜ High</div></div>
+    </div>
+
+    <div class="cheat-section">
+      <h3>🏛️ NIST CSF 2.0</h3>
+      <div class="cheat-row"><div class="cheat-key">What it is</div><div class="cheat-val">Flexible risk-based cybersecurity framework</div></div>
+      <div class="cheat-row"><div class="cheat-key">5 Functions</div><div class="cheat-val">Identify · Protect · Detect · Respond · Recover</div></div>
+      <div class="cheat-row"><div class="cheat-key">Who it's for</div><div class="cheat-val">US agencies, critical infrastructure, any org</div></div>
+      <div class="cheat-row"><div class="cheat-key">Complexity</div><div class="cheat-val">⬛⬛⬛⬜⬜ Medium</div></div>
+    </div>
+
+    <div class="cheat-section">
+      <h3>🛡️ CIS Controls v8</h3>
+      <div class="cheat-row"><div class="cheat-key">What it is</div><div class="cheat-val">18 prioritized, actionable security controls</div></div>
+      <div class="cheat-row"><div class="cheat-key">IG1 (Basic)</div><div class="cheat-val">Controls 1-6 — essential cyber hygiene for all</div></div>
+      <div class="cheat-row"><div class="cheat-key">Who it's for</div><div class="cheat-val">SMBs, teams starting their security journey</div></div>
+      <div class="cheat-row"><div class="cheat-key">Complexity</div><div class="cheat-val">⬛⬛⬜⬜⬜ Low-Medium</div></div>
+    </div>
+
+    <div class="cheat-section">
+      <h3>🔑 Key Takeaways</h3>
+      <div class="cheat-row"><div class="cheat-key">Start here</div><div class="cheat-val">CIS Controls IG1 — quick wins, immediate impact</div></div>
+      <div class="cheat-row"><div class="cheat-key">Scale up</div><div class="cheat-val">NIST CSF — risk-based, strategic alignment</div></div>
+      <div class="cheat-row"><div class="cheat-key">Go global</div><div class="cheat-val">ISO 27001 — for formal international certification</div></div>
+    </div>
+
+    <button class="btn-accent" style="width:100%;margin-top:1rem;" onclick="closeCheatsheet()">CLOSE</button>
+  </div>
+</div>
+
+<script>
+// =================== INTERACTIVE CYBER WALLPAPER ===================
+const wallCanvas = document.getElementById('cyberWallpaper');
+const wallCtx = wallCanvas.getContext('2d');
+const cyberGlyphs = '01<>[]{}#@!+=/\\|~*?SECUREPOLICYNISTISOCIS';
+let wallCols = [];
+let wallDrops = [];
+let wallFontSize = 16;
+let wallFocus = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+let wallPulse = 0;
+
+function wallResize() {
+  const dpr = window.devicePixelRatio || 1;
+  wallCanvas.width = Math.floor(window.innerWidth * dpr);
+  wallCanvas.height = Math.floor(window.innerHeight * dpr);
+  wallCanvas.style.width = window.innerWidth + 'px';
+  wallCanvas.style.height = window.innerHeight + 'px';
+  wallCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.ceil(window.innerWidth / wallFontSize);
+  wallCols = new Array(count).fill(0).map((_, i) => i * wallFontSize);
+  wallDrops = new Array(count).fill(0).map(() => -Math.random() * window.innerHeight);
+  wallFocus.x = window.innerWidth / 2;
+  wallFocus.y = window.innerHeight / 2;
+}
+
+function wallChar() {
+  return cyberGlyphs[Math.floor(Math.random() * cyberGlyphs.length)];
+}
+
+function drawCyberWallpaper() {
+  wallCtx.fillStyle = 'rgba(5,11,20,0.08)';
+  wallCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+  wallPulse += 0.008;
+  const aura = 110 + Math.sin(wallPulse) * 35;
+  const grad = wallCtx.createRadialGradient(wallFocus.x, wallFocus.y, 0, wallFocus.x, wallFocus.y, aura);
+  grad.addColorStop(0, 'rgba(0,212,255,0.24)');
+  grad.addColorStop(1, 'rgba(0,212,255,0)');
+  wallCtx.fillStyle = grad;
+  wallCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+  wallCtx.font = `${wallFontSize}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-mono').trim() || 'monospace'}`;
+
+  for (let i = 0; i < wallCols.length; i++) {
+    const x = wallCols[i];
+    const y = wallDrops[i];
+    wallCtx.fillStyle = 'rgba(0,212,255,0.45)';
+    wallCtx.fillText(wallChar(), x, y);
+
+    wallDrops[i] += wallFontSize * 0.42;
+    if (wallDrops[i] > window.innerHeight + Math.random() * 160) {
+      wallDrops[i] = -Math.random() * 180;
+    }
+  }
+
+  // Floating defense/framework icons
+  const t = Date.now() * 0.001;
+  const icons = ['🛡', '🔐', '⚡', '📋', '📖', '📐'];
+  wallCtx.font = '20px "Inter", sans-serif';
+  for (let i = 0; i < icons.length; i++) {
+    const ix = (window.innerWidth / icons.length) * i + 40 + Math.sin(t + i) * 28;
+    const iy = 80 + i * 90 + Math.cos(t * 1.3 + i) * 24;
+    wallCtx.fillStyle = 'rgba(189,0,255,0.33)';
+    wallCtx.fillText(icons[i], ix, iy);
+  }
+
+  requestAnimationFrame(drawCyberWallpaper);
+}
+
+window.addEventListener('resize', wallResize);
+
+wallResize();
+drawCyberWallpaper();
+
+// =================== MCQ ===================
+const mcqData = [
+  {
+    q: "What is the main difference between a Security Policy and a Security Guideline?",
+    opts: ["Policies are optional, guidelines are mandatory","Policies are mandatory rules; guidelines are recommended best practices","Guidelines are enforced by law, policies are not"],
+    ans: 1, exp: "Policies are formal, enforceable documents — employees must comply or face consequences. Guidelines are advisory and flexible."
+  },
+  {
+    q: "ISO 27001 is best described as:",
+    opts: ["A checklist of 18 security controls","A voluntary framework for US federal agencies","An international standard for managing an Information Security Management System (ISMS)"],
+    ans: 2, exp: "ISO 27001 is the global ISMS certification standard, recognized internationally and applicable to any organization seeking formal security certification."
+  },
+  {
+    q: "Which framework uses the five functions: Identify, Protect, Detect, Respond, and Recover?",
+    opts: ["CIS Controls","NIST Cybersecurity Framework","ISO 27002"],
+    ans: 1, exp: "The NIST CSF (Cybersecurity Framework) organizes its guidance into these five core functions, creating a lifecycle approach to cybersecurity risk management."
+  },
+  {
+    q: "A company says: 'Passwords must be at least 12 characters, include uppercase, lowercase, a number, and a symbol.' This is an example of a:",
+    opts: ["Policy","Guideline","Standard"],
+    ans: 2, exp: "This is a Standard — it contains specific, measurable technical requirements that support a broader Password Policy."
+  },
+  {
+    q: "CIS Controls are best suited for:",
+    opts: ["Only large enterprises with 1000+ employees","Organizations seeking international certification","Smaller teams or organizations looking for quick, actionable security improvements"],
+    ans: 2, exp: "CIS Controls v8 uses Implementation Groups (IG1/IG2/IG3) to scale. IG1 focuses on basic cyber hygiene — perfect for smaller organizations starting out."
+  },
+  {
+    q: "PCI DSS (Payment Card Industry Data Security Standard) is classified as:",
+    opts: ["A policy","A standard","A guideline"],
+    ans: 1, exp: "PCI DSS is an industry standard — it contains specific, measurable requirements for protecting cardholder data, applicable to any organization handling card payments."
+  },
+  {
+    q: "Which statement about NIST is TRUE?",
+    opts: ["NIST certification is mandatory for all US companies","NIST CSF is a voluntary, risk-based framework that is free to use","NIST replaces ISO 27001 for international organizations"],
+    ans: 1, exp: "NIST CSF is voluntary and freely available. It's widely adopted but not legally mandated (except for some US federal agencies)."
+  },
+  {
+    q: "An organization's IT team writes: 'We recommend using a VPN when accessing company resources on public Wi-Fi.' This is an example of:",
+    opts: ["A standard — it has specific technical requirements","A policy — it must be followed","A guideline — it is recommended but flexible"],
+    ans: 2, exp: "Using the word 'recommend' signals this is a Guideline — it advises best practices without making them mandatory."
+  }
+];
+
+let mcqIdx = 0, mcqScore = 0, mcqAnswered = false;
+
+function mcqRender() {
+  const q = mcqData[mcqIdx];
+  const prog = document.getElementById('mcqProgress');
+  prog.innerHTML = mcqData.map((_,i)=>`<div class="mcq-dot ${i<mcqIdx?'done':i===mcqIdx?'active':''}"></div>`).join('');
+  document.getElementById('mcqCounter').textContent = `Q${mcqIdx+1} / ${mcqData.length}`;
+  document.getElementById('mcqNextBtn').style.display='none';
+  mcqAnswered = false;
+  document.getElementById('mcqBody').innerHTML = `
+    <div class="mcq-q-num">QUESTION ${mcqIdx+1} OF ${mcqData.length}</div>
+    <div class="mcq-question">${q.q}</div>
+    <div class="mcq-options">
+      ${q.opts.map((o,i)=>`<div class="mcq-opt" id="opt${i}" onclick="mcqAnswer(${i})">
+        <span class="opt-letter">${['A','B','C'][i]}</span>${o}
+      </div>`).join('')}
+    </div>
+    <div class="mcq-feedback" id="mcqFeedback"></div>
+  `;
+}
+
+function mcqAnswer(chosen) {
+  if(mcqAnswered) return;
+  mcqAnswered = true;
+  const q = mcqData[mcqIdx];
+  const fb = document.getElementById('mcqFeedback');
+  for(let i=0;i<3;i++){
+    const el = document.getElementById('opt'+i);
+    el.classList.add('disabled');
+    if(i===q.ans) el.classList.add('correct');
+    else if(i===chosen && chosen!==q.ans) el.classList.add('wrong');
+  }
+  if(chosen===q.ans){
+    mcqScore++;
+    fb.className='mcq-feedback correct show';
+    fb.innerHTML='✅ Correct! '+q.exp;
+  } else {
+    fb.className='mcq-feedback wrong show';
+    fb.innerHTML='❌ Not quite. '+q.exp;
+  }
+  document.getElementById('mcqNextBtn').style.display='block';
+}
+
+function mcqNext() {
+  mcqIdx++;
+  if(mcqIdx>=mcqData.length){
+    document.getElementById('mcqCard').style.display='none';
+    const sc = document.getElementById('mcqScore');
+    sc.classList.add('show');
+    document.getElementById('mcqScoreNum').textContent=`${mcqScore}/${mcqData.length}`;
+    const pct = mcqScore/mcqData.length;
+    document.getElementById('mcqScoreMsg').textContent = pct>=0.8 ? '🎉 Excellent! You clearly understand policies, guidelines & standards.' : pct>=0.5 ? '👍 Good effort! Review the framework cheat sheet to strengthen your knowledge.' : '📚 Keep learning! Revisit the flashcards and framework cheat sheet to build your foundation.';
+  } else {
+    mcqRender();
+  }
+}
+
+function mcqReset() {
+  mcqIdx=0; mcqScore=0;
+  document.getElementById('mcqScore').classList.remove('show');
+  document.getElementById('mcqCard').style.display='block';
+  mcqRender();
+}
+
+mcqRender();
+
+// =================== DRAG & DROP ===================
+const ddAnswers = {
+  'Password Policy':'Policy',
+  'Risk Assessment':'Guideline',
+  'Incident Response':'Standard',
+  'Acceptable Use Policy':'Policy',
+  'Encryption Guideline':'Guideline',
+  'PCI DSS':'Standard',
+  'Data Retention Policy':'Policy',
+  'Remote Work Guideline':'Guideline',
+  'Access Control Standard':'Standard'
+};
+let ddDragging = null;
+
+function ddDragStart(e) {
+  ddDragging = e.target.closest('.dd-item');
+  ddDragging.classList.add('dragging');
+  e.dataTransfer.setData('text/plain', ddDragging.dataset.item);
+}
+
+function ddDragEnd(e) {
+  if(ddDragging) ddDragging.classList.remove('dragging');
+}
+
+function ddDragOver(e) {
+  e.preventDefault();
+  e.currentTarget.classList.add('drag-over');
+}
+
+function ddDrop(e, zone) {
+  e.preventDefault();
+  zone.classList.remove('drag-over');
+  const item = e.dataTransfer.getData('text/plain');
+  const src = document.querySelector(`.dd-item[data-item="${item}"]`);
+  if(src){ src.classList.add('dropped'); }
+  const cat = zone.dataset.cat;
+  const dropZone = document.getElementById('zone-'+cat);
+  const chip = document.createElement('div');
+  chip.className='dropped-chip';
+  chip.dataset.item=item;
+  chip.dataset.cat=cat;
+  chip.textContent=item;
+  dropZone.appendChild(chip);
+  // Remove any previous placement in other zones
+  document.querySelectorAll('.dropped-chip[data-item="'+item+'"]').forEach(c=>{
+    if(c!==chip) c.remove();
+  });
+}
+
+function ddReveal() {
+  document.querySelectorAll('.dropped-chip').forEach(chip=>{
+    const correct = ddAnswers[chip.dataset.item]===chip.dataset.cat;
+    chip.classList.add(correct?'correct':'wrong');
+    chip.textContent = (correct?'✅ ':'❌ ')+chip.dataset.item;
+  });
+  document.getElementById('ddExplanation').classList.add('show');
+}
+
+function ddReset() {
+  document.querySelectorAll('.dd-item').forEach(i=>i.classList.remove('dropped','dragging'));
+  ['Policy','Guideline','Standard'].forEach(cat=>{
+    document.getElementById('zone-'+cat).innerHTML='';
+  });
+  document.getElementById('ddExplanation').classList.remove('show');
+}
+
+// Add dragenter/dragleave
+document.querySelectorAll('.dd-category').forEach(zone=>{
+  zone.addEventListener('dragleave',()=>zone.classList.remove('drag-over'));
+});
+
+// =================== SECURITY QUIZ ===================
+const sqData = [
+  { q:"Do you use Multi-Factor Authentication (MFA) on your accounts?", tip:"MFA is one of the most effective controls — CIS Control #6." },
+  { q:"Do you regularly update your operating system and applications?", tip:"Patch management is CIS Control #7 — Continuous Vulnerability Management." },
+  { q:"Do you use different, strong passwords for each online account?", tip:"Password hygiene is a core policy requirement in virtually all frameworks." },
+  { q:"Do you verify the authenticity of emails and websites before clicking links?", tip:"The best way to protect yourself from phishing is to verify the authenticity of emails and websites before clicking links." },
+  { q:"Do you back up your important data regularly (3-2-1 backup rule)?", tip:"Data backup and recovery aligns with NIST's 'Recover' function and CIS Control #11." },
+  { q:"Do you restrict admin privileges and review access rights periodically?", tip:"Least privilege and periodic access reviews are core to ISO 27001 Annex A and CIS Control #6." },
+  { q:"Do you protect all your devices (laptop, phone) with security tools?", tip:"If one device is unprotected, it can expose everything." }
+];
+
+let sqIdx=0, sqScore=0;
+
+function sqRender() {
+  const q = sqData[sqIdx];
+  document.getElementById('sqQNum').textContent=`QUESTION ${sqIdx+1} / ${sqData.length}`;
+  document.getElementById('sqQScore').textContent=sqIdx>0?`✅ ${sqScore} correct`:'';
+  document.getElementById('sqBody').innerHTML=`
+    <div class="sq-question">${q.q}</div>
+    <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim);margin-bottom:1rem;">💡 ${q.tip}</div>
+    <div class="sq-options">
+      <div class="sq-opt" onclick="sqAnswer(this,'yes')">✅ Yes</div>
+      <div class="sq-opt" onclick="sqAnswer(this,'no')">❌ No</div>
+    </div>
+  `;
+}
+
+function sqAnswer(el, ans) {
+  document.querySelectorAll('.sq-opt').forEach(o=>o.onclick=null);
+  el.classList.add(ans==='yes'?'selected-yes':'selected-no');
+  if(ans==='yes') sqScore++;
+  setTimeout(()=>{
+    sqIdx++;
+    if(sqIdx>=sqData.length) sqShowResult();
+    else sqRender();
+  }, 600);
+}
+
+function sqShowResult() {
+  document.getElementById('sqCard').style.display='none';
+  const res = document.getElementById('sqResult');
+  res.classList.add('show');
+  const num = document.getElementById('sqScoreNum');
+  const ring = document.getElementById('sqRing');
+  num.textContent=sqScore;
+  let level, desc, sugg, cls;
+  if(sqScore<=2) {
+    cls='low'; level='🔴 Low Security'; desc='Your security posture needs significant improvement. You may be exposed to common threats.';
+    sugg='<strong>Start with CIS Controls IG1</strong> — focus on the first 6 controls: asset inventory, software management, data protection, secure configurations, account management, and access control. These are foundational and achievable quickly.';
+  } else if(sqScore<=5) {
+    cls='med'; level='🟡 Medium Security'; desc="You've taken some steps, but there are gaps that attackers could exploit.";
+    sugg='<strong>Apply NIST CSF</strong> — map your current controls to the five functions (Identify, Protect, Detect, Respond, Recover) and focus on closing gaps in Detect and Respond.';
+  } else {
+    cls='high'; level='🟢 High Security'; desc="Great security habits! You're following key best practices across multiple frameworks.";
+    sugg='<strong>Consider ISO 27001</strong> — if you\'re maintaining strong practices, formalizing them into a certified ISMS could provide organizational credibility and ensure systematic coverage of all controls.';
+  }
+  ring.className='sq-score-ring '+cls;
+  document.getElementById('sqLevel').textContent=level;
+  document.getElementById('sqLevelDesc').textContent=desc;
+  document.getElementById('sqSuggestion').innerHTML=sugg;
+}
+
+function sqReset() {
+  sqIdx=0; sqScore=0;
+  document.getElementById('sqCard').style.display='block';
+  document.getElementById('sqResult').classList.remove('show');
+  sqRender();
+}
+
+sqRender();
+
+// =================== SCENARIO GAME ===================
+const gameData = [
+  {
+    company:"FinanceFirst Bank", icon:"🏦", type:"Financial Institution",
+    scenario:"FinanceFirst processes thousands of credit card transactions daily. They suffered a data breach last year exposing 50,000 card numbers. Their regulator is now demanding a formal compliance audit.",
+    question:"Which framework/standard should FinanceFirst prioritize to protect cardholder data and satisfy their regulator?",
+    choices:[
+      {label:"Implement CIS Controls IG1 for quick wins", correct:false, explanation:"CIS is a good start, but the regulator is demanding formal compliance — CIS alone doesn't meet this requirement."},
+      {label:"Comply with PCI DSS (Payment Card Industry Data Security Standard)", correct:true, explanation:"PCI DSS is the mandatory industry standard for organizations handling card payments. It's specifically designed for this scenario and is required by card brands."},
+      {label:"Adopt ISO 27001 for general security management", correct:false, explanation:"ISO 27001 is valuable but too broad for this specific requirement. PCI DSS is the specific standard for card data security."}
+    ]
+  },
+  {
+    company:"TechStartup Oman", icon:"🚀", type:"Early-stage Tech Company",
+    scenario:"TechStartup Oman has 15 employees and just landed its first major enterprise client. The client's security team is asking for evidence of basic cybersecurity hygiene before signing the contract.",
+    question:"Which framework should TechStartup adopt first to quickly demonstrate security maturity?",
+    choices:[
+      {label:"ISO 27001 full certification process", correct:false, explanation:"ISO 27001 is comprehensive but requires months of preparation and significant investment — too slow and costly for an early-stage company."},
+      {label:"CIS Controls IG1 — the first 6 controls", correct:true, explanation:"CIS IG1 covers essential cyber hygiene (inventory, patching, access control, backups) — achievable in weeks and perfect for small teams. It shows credible security without massive overhead."},
+      {label:"Write custom internal policies only", correct:false, explanation:"Custom policies without a recognized framework won't satisfy an enterprise client's security team. You need an established baseline."}
+    ]
+  },
+  {
+    company:"Ministry of Health", icon:"🏥", type:"Government Healthcare Agency",
+    scenario:"The Ministry of Health manages sensitive patient records for 2 million citizens. They want to establish a comprehensive security program aligned with national and international best practices, and need it to be risk-based and scalable.",
+    question:"Which framework is most appropriate for building the Ministry's enterprise-wide security program?",
+    choices:[
+      {label:"PCI DSS — for industry compliance", correct:false, explanation:"PCI DSS is specific to payment card data, not healthcare. It doesn't address the Ministry's broader security needs."},
+      {label:"NIST Cybersecurity Framework (CSF)", correct:true, explanation:"NIST CSF is ideal here — it's risk-based, scalable, covers all cybersecurity domains, and is widely used by government agencies and healthcare. Its five functions map perfectly to a national health security program."},
+      {label:"Only develop internal Password Policies", correct:false, explanation:"Password policies alone are a tiny subset of what's needed. A government healthcare agency needs a comprehensive, risk-based framework."}
+    ]
+  },
+  {
+    company:"GlobalTrade Corp", icon:"🌍", type:"Multinational Corporation",
+    scenario:"GlobalTrade Corp operates in 28 countries and needs to demonstrate security compliance to partners in Europe, Asia, and the Americas. Board members want formal proof of their security program's effectiveness.",
+    question:"Which approach gives GlobalTrade the most internationally recognized security credentials?",
+    choices:[
+      {label:"Adopt NIST CSF across all offices", correct:false, explanation:"NIST CSF is excellent but primarily US-recognized. For international recognition across 28 countries, a different approach is stronger."},
+      {label:"Implement ISO/IEC 27001 and achieve certification", correct:true, explanation:"ISO 27001 is the gold standard for international recognition. A formal certification from an accredited auditor is recognized in all 28 countries and is the most powerful proof of security maturity for global partners."},
+      {label:"Deploy CIS Controls across all systems", correct:false, explanation:"CIS Controls are technically excellent but don't provide the formal, audited certification that international partners and regulators expect from a multinational."}
+    ]
+  },
+  {
+    company:"University of Tech", icon:"🎓", type:"Academic Institution",
+    scenario:"The university experienced phishing attacks targeting student emails and ransomware on two faculty computers. The IT team wants to build a structured security awareness and protection plan but has a limited budget.",
+    question:"Which approach best addresses the university's immediate threats within a limited budget?",
+    choices:[
+      {label:"Pursue ISO 27001 certification immediately", correct:false, explanation:"ISO 27001 requires substantial investment in auditors and documentation — not feasible with a limited budget, and too slow to address immediate threats."},
+      {label:"Establish Email Security and Awareness Policies + CIS Controls IG1", correct:true, explanation:"Combining a clear Acceptable Use Policy with phishing training (guideline) and CIS Controls IG1 (email protection, patching, access control) directly addresses the specific threats at minimal cost."},
+      {label:"Only send a policy email reminding staff not to click links", correct:false, explanation:"A single policy email without technical controls or training is ineffective. Ransomware and phishing require both policy AND technical safeguards."}
+    ]
+  },
+  {
+    company:"CloudHealth Clinics", icon:"☁️", type:"Regional Healthcare Provider",
+    scenario:"CloudHealth is moving patient systems to cloud services. Leadership needs a framework that helps identify risks, protect sensitive records, detect threats early, and recover quickly from incidents.",
+    question:"Which option best provides a complete, risk-based structure for this cloud migration?",
+    choices:[
+      {label:"Rely only on vendor default security settings", correct:false, explanation:"Vendor defaults are useful but not enough for healthcare risk management. They don't provide a complete governance structure."},
+      {label:"Adopt the NIST Cybersecurity Framework (CSF) and map controls to its core functions", correct:true, explanation:"NIST CSF gives a full lifecycle model (Identify, Protect, Detect, Respond, Recover) that is ideal for managing cloud migration risk in a structured way."},
+      {label:"Use only a password complexity policy", correct:false, explanation:"Password rules are important but too narrow. Healthcare cloud migration needs broader controls across monitoring, response, and recovery."}
+    ]
+  }
+];
+
+let gameIdx=0, gameScore=0, gameAnswered=false;
+
+function gameRender() {
+  const s = gameData[gameIdx];
+  document.getElementById('gameScenarioNum').textContent=`SCENARIO ${gameIdx+1} / ${gameData.length}`;
+  document.getElementById('gameScoreBadge').textContent=`SCORE: ${gameScore}`;
+  gameAnswered=false;
+  document.getElementById('gameNextBtn').style.display='none';
+  document.getElementById('gameFooterMsg').textContent='';
+  document.getElementById('gameBody').innerHTML=`
+    <div class="game-company">
+      <div class="company-icon" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);">${s.icon}</div>
+      <div>
+        <div class="company-name">${s.company}</div>
+        <div class="company-type">${s.type}</div>
+      </div>
+    </div>
+    <div class="game-scenario-text">${s.scenario}</div>
+    <div class="game-question">🎯 ${s.question}</div>
+    <div class="game-choices">
+      ${s.choices.map((c,i)=>`
+        <div class="game-choice" id="gc${i}" onclick="gameAnswer(${i})">
+          <span class="choice-key">${['A','B','C'][i]}</span>
+          <span>${c.label}</span>
+        </div>
+      `).join('')}
+    </div>
+    <div class="game-result-panel" id="gameResult"></div>
+  `;
+}
+
+function gameAnswer(chosen) {
+  if(gameAnswered) return;
+  gameAnswered=true;
+  const s = gameData[gameIdx];
+  const c = s.choices[chosen];
+  s.choices.forEach((_,i)=>document.getElementById('gc'+i).classList.add('disabled'));
+  const panel = document.getElementById('gameResult');
+  if(c.correct){
+    gameScore++;
+    document.getElementById('gc'+chosen).classList.add('correct');
+    panel.className='game-result-panel correct show';
+    panel.innerHTML='✅ Correct! '+c.explanation;
+  } else {
+    document.getElementById('gc'+chosen).classList.add('wrong');
+    const correctIdx = s.choices.findIndex(x=>x.correct);
+    document.getElementById('gc'+correctIdx).classList.add('correct');
+    panel.className='game-result-panel wrong show';
+    panel.innerHTML='❌ Not the best choice. '+c.explanation;
+  }
+  document.getElementById('gameScoreBadge').textContent=`SCORE: ${gameScore}`;
+  document.getElementById('gameNextBtn').style.display='block';
+  document.getElementById('gameFooterMsg').textContent=`${gameScore} / ${gameIdx+1} correct so far`;
+}
+
+function gameNext() {
+  gameIdx++;
+  if(gameIdx>=gameData.length){
+    document.getElementById('gameCard').style.display='none';
+    const end = document.getElementById('gameEnd');
+    end.classList.add('show');
+    document.getElementById('gameEndScore').textContent=`${gameScore}/${gameData.length}`;
+    const pct=gameScore/gameData.length;
+    if(pct===1){ document.getElementById('gameEndTitle').textContent='🏆 Perfect Score!'; document.getElementById('gameEndDesc').textContent='You nailed every scenario. You understand exactly when to apply each framework!'; }
+    else if(pct>=0.6){ document.getElementById('gameEndTitle').textContent='👏 Strong Performance'; document.getElementById('gameEndDesc').textContent='Good understanding! Review the scenarios you missed and revisit the framework cheat sheet.'; }
+    else { document.getElementById('gameEndTitle').textContent='📚 Keep Practicing'; document.getElementById('gameEndDesc').textContent='Each scenario has a clear best answer. Revisit the framework cheat sheet to strengthen your framework knowledge.'; }
+  } else {
+    gameRender();
+  }
+}
+
+function gameReset() {
+  gameIdx=0; gameScore=0;
+  document.getElementById('gameCard').style.display='block';
+  document.getElementById('gameEnd').classList.remove('show');
+  gameRender();
+}
+
+gameRender();
+
+// =================== CHEAT SHEET ===================
+function openCheatsheet(){ document.getElementById('cheatModal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeCheatsheet(){ document.getElementById('cheatModal').classList.remove('open'); document.body.style.overflow=''; }
+
+function buildCheatsheetPdfBlob() {
+  const lines = [
+    'Cybersecurity Frameworks - Cheat Sheet',
+    '',
+    'The Three Pillars',
+    '- Policy: Mandatory rules enforced by authority.',
+    '- Guideline: Recommended best practices.',
+    '- Standard: Specific measurable technical requirements.',
+    '',
+    'ISO 27001',
+    '- International ISMS certification standard.',
+    '- Best for organizations needing global recognition.',
+    '',
+    'NIST CSF 2.0',
+    '- Flexible risk-based framework.',
+    '- Functions: Identify, Protect, Detect, Respond, Recover.',
+    '',
+    'CIS Controls v8',
+    '- 18 prioritized actionable controls.',
+    '- IG1 is ideal for quick baseline improvements.',
+    '',
+    'Key Takeaways',
+    '- Start: CIS Controls IG1',
+    '- Scale: NIST CSF',
+    '- Go global: ISO 27001'
+  ];
+  const content = lines.join('\n');
+  const escaped = content.replace(/\\/g, '\\\\').replace(/\(/g, '\\(').replace(/\)/g, '\\)');
+  const stream = `BT
+/F1 12 Tf
+48 790 Td
+14 TL
+(${escaped.replace(/\n/g, ') Tj T* (')}) Tj
+ET`;
+  const objects = [
+    `1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj`,
+    `2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj`,
+    `3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj`,
+    `4 0 obj
+<< /Length ${stream.length} >>
+stream
+${stream}
+endstream
+endobj`,
+    `5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj`
+  ];
+
+  let pdf = '%PDF-1.4\n';
+  const offsets = [0];
+  for (let i = 0; i < objects.length; i++) {
+    offsets.push(pdf.length);
+    pdf += objects[i] + '\n';
+  }
+  const xrefPos = pdf.length;
+  pdf += `xref
+0 ${objects.length + 1}
+0000000000 65535 f 
+`;
+  for (let i = 1; i < offsets.length; i++) {
+    pdf += `${String(offsets[i]).padStart(10, '0')} 00000 n 
+`;
+  }
+  pdf += `trailer
+<< /Size ${objects.length + 1} /Root 1 0 R >>
+startxref
+${xrefPos}
+%%EOF`;
+  return new Blob([pdf], { type: 'application/pdf' });
+}
+
+function openCheatsheetPdf() {
+  const blob = buildCheatsheetPdfBlob();
+  const url = URL.createObjectURL(blob);
+  window.open(url, '_blank');
+  setTimeout(() => URL.revokeObjectURL(url), 120000);
+}
+
+function downloadCheatsheetPdf() {
+  const blob = buildCheatsheetPdfBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'frameworks-cheat-sheet.pdf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 120000);
+}
+
+function setCheatsheetQr() {
+  const qr = document.getElementById('cheatsheetQr');
+  if (!qr) return;
+  const qrTarget = new URL('./cheatsheet-download.html', window.location.href).href;
+  qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrTarget)}`;
+}
+
+setCheatsheetQr();
+
+const autoSheet = new URLSearchParams(window.location.search).get('sheet');
+if (autoSheet === 'pdf') {
+  openCheatsheetPdf();
+}
+</script>
+</body>
+</html>
