@@ -1922,7 +1922,7 @@ function downloadCheatsheetPdf() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'frameworks-cheat-sheet.pdf';
+  a.download = 'frameworks-cheat-sheet.png';
   document.body.appendChild(a);
   a.click();
   a.remove();
