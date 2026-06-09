@@ -25,6 +25,7 @@ Rather than presenting information as static content, CyberShield uses interacti
 - Incident Response Simulator
 
 [Gamification System]
+
 CyberShield includes a complete gamification layer to increase engagement:
 
 - XP (Experience Points) system
@@ -40,6 +41,7 @@ CyberShield includes a complete gamification layer to increase engagement:
 - Responsive Design
 
 [Technical Stack]
+
 Frontend:
 - HTML5
 - CSS3
@@ -62,6 +64,7 @@ Additional Functionality:
 - Achievement system
 
 [Educational Objectives]
+
 This projects aims to increase cybersecurity awareness among several types of people, from the normal users to experets. Also, it teaches risk management fundamentals, which scale on these three terminologies:
 - Policies
 - Guidelines
