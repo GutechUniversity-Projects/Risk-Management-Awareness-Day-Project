@@ -72,7 +72,7 @@ This projects aims to increase cybersecurity awareness among several types of pe
 In addition, the website focus on familiarize users with industry frameworks like NIST, CSF, etc. Furthermore, the users and the learners will improve and understand incident response scenarios, as well as have the ability to make security decisions when a breach occur with some structured scenarios as well.
 
 # Our Group Report !
-Don't forget to take a look for our group report, which illustrates our journy of building the whole project, not only the website. You can find the pdf file in the main directory, with the name "Cybersecurity_Awareness_Day_Booth_Report".
+Don't forget to take a look of our group report, which illustrates our journey of building the whole project, not only the website. You can find the pdf file in the main directory, with the name "Cybersecurity_Awareness_Day_Booth_Report".
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
