@@ -15,7 +15,6 @@ The project focuses on helping users understand the differences between cybersec
 Rather than presenting information as static content, CyberShield uses interactive educational modules that allow users to learn by doing, making cybersecurity awareness more engaging and memorable.
 
 # Features
-[Interactive Learning Modules]
 - Flashcards
 - Multiple Choice Quiz (MCQ)
 - Drag-and-Drop Classification Activity
@@ -24,7 +23,7 @@ Rather than presenting information as static content, CyberShield uses interacti
 - Scenario-Based Decision Game
 - Incident Response Simulator
 
-[Gamification System]
+# Gamification System
 
 CyberShield includes a complete gamification layer to increase engagement:
 
@@ -35,12 +34,12 @@ CyberShield includes a complete gamification layer to increase engagement:
 - Interactive feedback mechanisms
 - Learning milestones
 
-[User Experience Highlights]
+# User Experience Highlights
 - Modern Cybersecurity-Themed Design
 - Accessibility Features
 - Responsive Design
 
-[Technical Stack]
+# Technical Stack
 
 Frontend:
 - HTML5
@@ -63,7 +62,7 @@ Additional Functionality:
 - Drag-and-drop interactions
 - Achievement system
 
-[Educational Objectives]
+# Educational Objectives
 
 This projects aims to increase cybersecurity awareness among several types of people, from the normal users to experets. Also, it teaches risk management fundamentals, which scale on these three terminologies:
 - Policies
@@ -75,7 +74,7 @@ In addition, the website focus on familiarize users with industry frameworks lik
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Author
-Developed by [Alhassan Khalid] as a Risk Management course project for cybersecurity awareness and education.
+Developed by Alhassan Khalid as a Risk Management course project for cybersecurity awareness and education.
 
 CyberShield — Learn. Assess. Respond. Secure. 🔐🛡️
 
